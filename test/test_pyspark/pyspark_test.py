@@ -84,7 +84,6 @@ class MyTestCase(unittest.TestCase):
         result_df = replace_null_values(df)
         expected_data = [
             ("Washing Machine", "2022-04-01T05:25:33.000+0530", 20000, "Samsung", "India", "0001"),("Refrigerator ", "2022-04-01T05:26:39.000+0530", 35000, "LG"," ", "0002")]
-
         expected_schema = StructType([
             StructField("Product Name", StringType()),
             StructField("Issue Date", StringType()),
