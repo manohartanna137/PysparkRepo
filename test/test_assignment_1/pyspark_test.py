@@ -1,5 +1,9 @@
 import unittest
-from src.assignment_1.utils import *
+from src.assignment_1.utils import SparkSession,unix_timestamp,from_unixtime,col,to_utc_timestamp,date_format,\
+    trim,from_utc_timestamp,unix_timestamp,udf,to_date,StringType,IntegerType,\
+    DateType,StructType,StructField,LongType,Row,time_stamp_format,\
+    time_stamp_format,removing_spaces,extract_date,replace_null_values,\
+    create_dataframe,create_new_column,filter_records
 
 class MyTestCase(unittest.TestCase):
 
@@ -70,13 +74,13 @@ class MyTestCase(unittest.TestCase):
             ]
 
         expected_schema = StructType([
-            StructField("Product Name", StringType()),
-            StructField("Issue Date", StringType()),
-            StructField("Price", IntegerType()),
-            StructField("Brand", StringType()),
-            StructField("Country", StringType()),
-            StructField("Productnumber", StringType()),
-            StructField("Date", StringType())])
+            StructField("Product Name", StringType(),True),
+            StructField("Issue Date", StringType(),True),
+            StructField("Price", IntegerType(),True),
+            StructField("Brand", StringType(),True),
+            StructField("Country", StringType(),True),
+            StructField("Productnumber", StringType(),True),
+            StructField("Date", StringType()),True])
         df2 = self.spark.createDataFrame(data=expected_data, schema=expected_schema)
         self.assertEqual(sorted(df2.collect()), sorted(result_df.collect()))
 
@@ -133,12 +137,12 @@ class MyTestCase(unittest.TestCase):
                 (150439, 234567, "UK", 345678, "2021-12-27T08:21:14.645+0000", "0002"),
                 (150647, 345678, "ES", 234567, "2021-12-27T08:22:42.445+0000", "0003")]
         schema = StructType([
-            StructField("SourceId", IntegerType(), nullable=True),
-            StructField("TransactionNumber", IntegerType(), nullable=True),
-            StructField("Language", StringType(), nullable=True),
-            StructField("ModelNumber", IntegerType(), nullable=True),
-            StructField("StartTime", StringType(), nullable=True),
-            StructField("ProductNumber", StringType(), nullable=True)])
+            StructField("SourceId", IntegerType(), True),
+            StructField("TransactionNumber", IntegerType(), True),
+            StructField("Language", StringType(), True),
+            StructField("ModelNumber", IntegerType(), True),
+            StructField("StartTime", StringType(), True),
+            StructField("ProductNumber", StringType(), True)])
         df = self.spark.createDataFrame(data=data, schema=schema)
         result_df = create_dataframe(df)
         expected_data=[(150711, 123456, "EN", 456789,"2021-12-27T08:20:29.842+0000" , "0001"),
@@ -169,12 +173,12 @@ class MyTestCase(unittest.TestCase):
         result_df = create_new_column(df)
         expected_data = [((150711, 123456, 'EN', 456789, '2021-12-27T08:20:29.842+0000', '0001', 1640593229000))]
         expected_schema = StructType([
-            StructField("SourceId", IntegerType()),
-            StructField("TransactionNumber", IntegerType()),
-            StructField("Language", StringType()),
-            StructField("ModelNumber", IntegerType()),
-            StructField("StartTime", StringType()),
-            StructField("ProductNumber", StringType()),
+            StructField("SourceId", IntegerType(),True),
+            StructField("TransactionNumber", IntegerType(),True),
+            StructField("Language", StringType(),True),
+            StructField("ModelNumber", IntegerType(),True),
+            StructField("StartTime", StringType(),True),
+            StructField("ProductNumber", StringType(),True),
             StructField("start_time_ms", LongType(),True)
         ])
 

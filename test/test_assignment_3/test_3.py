@@ -1,5 +1,6 @@
 import unittest
-from src.assignment_3.utils import *
+from src.assignment_3.utils import expr,StringType,IntegerType,DateType,StructType,\
+    StructField,SparkSession,pivot_df, unpivot_dataframe
 
 data = [
         ("banana", 1000, "USA"),
@@ -80,25 +81,5 @@ class MyTestCase(unittest.TestCase):
         df2=self.spark.createDataFrame(data=expected_data,schema=expected_schema)
         expected_df = df2.collect()
         self.assertEqual(actual_df,expected_df)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+if __name__ == '__main__':
+    unittest.main()
