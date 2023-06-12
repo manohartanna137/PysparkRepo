@@ -1,6 +1,5 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import unix_timestamp,from_unixtime,col,to_utc_timestamp,date_format,trim,from_utc_timestamp,unix_timestamp,udf,to_date
-from functools import reduce
 from pyspark.sql.types import StringType,IntegerType,DateType,StructType,StructField,LongType,Row
 
 data_products=[("Washing Machine","1648770933000",20000,"Samsung","India","0001"),("Refrigerator ","1648770999000",35000," LG",None,"0002"),("Air Cooler","1648770948000",45000," Voltas",None,"0003")]
