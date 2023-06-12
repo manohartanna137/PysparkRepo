@@ -1,7 +1,6 @@
 from pyspark.sql import SparkSession, Window
-from pyspark.sql.functions import unix_timestamp,from_unixtime,col,to_utc_timestamp,date_format,trim,from_utc_timestamp,unix_timestamp,row_number,avg,sum,min,max
-from functools import reduce
-from pyspark.sql.types import StringType,IntegerType,DateType,StructType,StructField
+from pyspark.sql.functions import col,row_number,avg,sum,min,max
+from pyspark.sql.types import StringType,IntegerType,DateType,StructType,StructField,FloatType
 
 #creating a spark session
 def spark_session():
