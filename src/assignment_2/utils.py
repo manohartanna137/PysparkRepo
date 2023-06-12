@@ -58,7 +58,8 @@ def rename_nested_column(df):
     return df_rename_column
 
 def drop_columns(df):
-    df_drop = df.drop("department", "age")
+    cols = ["dob", "salary"]
+    df_drop = df.drop(*cols)
     return df_drop
 
 
