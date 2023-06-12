@@ -8,7 +8,7 @@ df.show(truncate=False)
 df_row=dept_wise_row_first(df)
 df_row.show(truncate=False)
 
-df_sal_details=dept_wise_row_first(df)
+df_sal_details=dept_wise_high_sal(df)
 df_sal_details.show()
 
 df_low_avg=low_avg_high_totalsal(df)
